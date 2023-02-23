@@ -4,13 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static common.CommonAction.*;
+import common.CommonAction;
 
 public class LoginPage {
-	public LoginPage (WebDriver driver) {
+
+	CommonAction action;
+
+	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action = new CommonAction(driver);
 	}
-	
+
 	@FindBy(xpath = "//span[text()='Log In']//parent::a")
 	WebElement login01;
 	@FindBy(className = "user-zip")
@@ -23,29 +27,29 @@ public class LoginPage {
 	WebElement userPassowardField;
 	@FindBy(name = "SubmitButtonComponent-1")
 	WebElement loginButton03;
-	
+
 	public void clickLoginBtn01() {
-		 click(login01);
+		action.click(login01);
 	}
-	
+
 	public void inputZipcode(String zipcode) {
-		insert(login01, zipcode);
+		action.insert(login01, zipcode);
 	}
-	
+
 	public void clickLoginBtn02() {
-		click(login02);
+		action.click(login02);
 	}
-	
+
 	public void inputId(String id) {
-		insert(userIdField, id);
+		action.insert(userIdField, id);
 	}
-	
+
 	public void inputPasswoard(String password) {
-		insert(userPassowardField, password);
+		action.insert(userPassowardField, password);
 	}
-	
+
 	public void clickLoginBtn03() {
-		 click(loginButton03);
+		action.click(loginButton03);
 	}
 
 }
