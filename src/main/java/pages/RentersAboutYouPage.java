@@ -7,17 +7,19 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static common.CommonAction.*;
+import common.CommonAction;
 
 import java.time.Duration;
 
 public class RentersAboutYouPage {
 
+	CommonAction action;
+
 	public RentersAboutYouPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action = new CommonAction(driver);
 	}
-	
+
 	@FindBy(css = "a.modal-trigger.btn.btn--primary.btn--full-mobile")
 	WebElement startMyQuote;
 
@@ -37,27 +39,27 @@ public class RentersAboutYouPage {
 	WebElement aptfield;
 	@FindBy(xpath = "(//input[@size='6'])[2]")
 	WebElement zipcodeField;
-	
+
 	public void clickStratMyQuote() {
-		click(startMyQuote);
+		action.click(startMyQuote);
 	}
 
 	public void verifyRentersAboutYouPageTitle(String expectedTitle) {
-		validate(rentersAboutYouPageTitle, expectedTitle);
+		action.validate(rentersAboutYouPageTitle, expectedTitle);
 	}
 
 	public void insertFirstName(String firstName) {
-		insert(firstNameField, firstName);
+		action.insert(firstNameField, firstName);
 	}
 
 	public void insertlasttName(String lastName) {
-		insert(lastNameField, lastName);
+		action.insert(lastNameField, lastName);
 	}
 
 	public void insertDOB(WebDriver driver) {
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].value='02/27/1993'", dateOfBirth);
-		
+
 	}
 
 	public void clickNextBtn(WebDriver driver) {
@@ -71,11 +73,11 @@ public class RentersAboutYouPage {
 	}
 
 	public void insertAptNo(String aptNo) {
-		insert(aptfield, aptNo);
+		action.insert(aptfield, aptNo);
 	}
 
 	public void insertZipcode(String zip) {
-		insert(zipcodeField, zip);
+		action.insert(zipcodeField, zip);
 	}
 
 }

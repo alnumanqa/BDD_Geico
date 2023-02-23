@@ -4,14 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static common.CommonAction.*;
+import common.CommonAction;
 
 public class HomePage {
 
+	CommonAction action;
+
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action = new CommonAction(driver);
 	}
-	
+
 	@FindBy(tagName = "h1")
 	WebElement homepageTitle;
 	@FindBy(id = "ssp-service-zip")
@@ -26,52 +29,34 @@ public class HomePage {
 	WebElement starMyQuoteBtn;
 	@FindBy(css = "input.btn.btn--primary.btn--full-mobile")
 	WebElement continueBtn;
-	
-	
+
 	public void verifyHomepageTitle(String expectedTitle) {
-		validate(homepageTitle, expectedTitle);
-	}
-	
-	public void insertZipcode(String zip) {
-		insert(zipcodeField, zip);
-	}
-	
-	public void clickGoBtn() {
-		click(goBtn);
-	}
-	
-	public void selectAutoLOB() {
-		click(autoLOB);
-	}
-	public void selectRentersLOB() {
-		click(rentersLOB);
-	}
-	
-	public void clickStartMyQuote() {
-		click(starMyQuoteBtn);
-	}
-	
-	public void clickCoutinueBtn() {
-		click(continueBtn);
-		
+		action.validate(homepageTitle, expectedTitle);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void insertZipcode(String zip) {
+		action.insert(zipcodeField, zip);
+	}
+
+	public void clickGoBtn() {
+		action.click(goBtn);
+	}
+
+	public void selectAutoLOB() {
+		action.click(autoLOB);
+	}
+
+	public void selectRentersLOB() {
+		action.click(rentersLOB);
+	}
+
+	public void clickStartMyQuote() {
+		action.click(starMyQuoteBtn);
+	}
+
+	public void clickCoutinueBtn() {
+		action.click(continueBtn);
+
+	}
+
 }
