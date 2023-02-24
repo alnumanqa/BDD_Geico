@@ -11,16 +11,16 @@ public class LoginPageStep extends BaseClass {
 		loginPage.clickLoginBtn01();
 
 	}
-
+	
 	@When("insert zipcode field {string}")
 	public void insert_zipcode_field(String zipcode) {
-		loginPage.inputZipcode(zipcode);
-
+	   loginPage.inputZipcode(zipcode);
 	}
+
 
 	@When("click login button02")
 	public void click_login_button02() {
-		loginPage.clickLoginBtn02();
+		loginPage.clickLoginBtn02(); 
 
 	}
 
