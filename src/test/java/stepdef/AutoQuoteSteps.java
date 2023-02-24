@@ -6,28 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AutoQuoteSteps extends BaseClass {
-
-	@Given("insert zipcode {string}")
-	public void insert_zipcode(String zipcode) {
-		homePage.insertZipcode(zipcode);
-
-	}
-
-	@When("click go button")
-	public void click_go_button() {
-		homePage.clickGoBtn();
-
-	}
-
+	
 	@Then("select auto LOB")
 	public void select_auto_lob() {
 		homePage.selectAutoLOB();
-
-	}
-
-	@When("click start my quote")
-	public void click_start_my_quote() {
-		homePage.clickStartMyQuote();
 
 	}
 

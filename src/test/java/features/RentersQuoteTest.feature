@@ -1,23 +1,17 @@
 Feature: Title of your feature
-  I want to use this template for my feature file
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+  Background: 
+    *This is Renters Quote Test
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
 
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+  @renters 
+  Scenario: Creating Renters Quote
+    Given validate homePage title
+    And insert zipcode '14215'
+    When click go button
+    Then select renters LOB
+    When click start my quote
+    Given validate renters about you page title
+    And insert first name 'Al'
+    And insert last name 'Numan'
+    Then insert date of birth '02271993'
